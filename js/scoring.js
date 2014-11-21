@@ -14,12 +14,21 @@ function loadActivePlayers(name0, name1) {
   });
 }
 
-activePlayersRef.on("value", function(players) {
-  var p0 = players.val().team0;
-  var p1 = players.val().team1;
+var player0 = {};
+var player1 = {};
 
-  $('.view-team0').children('header').children('h2').text(p0.name);
-  $('.view-team1').children('header').children('h2').text(p1.name);
+activePlayersRef.on("value", function(players) {
+  player0 = players.val().team0;
+  player1 = players.val().team1;
+
+  var team0 = $('.view-team0').children('header');
+  var team1 = $('.view-team1').children('header');
+
+  team0.children('h2').text(player0.name);
+  team0.children('h3').text(player0.score);
+
+  team1.children('h2').text(player1.name);
+  team1.children('h3').text(player1.score);
 });
 
 // TODO select active players
@@ -115,12 +124,35 @@ var initScoreViewer = function () {
   activeGameScoreRef.on ('value', function (snapshot) {
     var audio = new Audio('sound/bell.wav');
     audio.play();
-    $ ('.score-card.team0').text (snapshot.val ().team0);
-    $ ('.score-card.team1').text (snapshot.val ().team1);
+
+    var score0 = snapshot.val().team0;
+    var score1 = snapshot.val().team1;
+
+    $ ('.score-card.team0').text(score0);
+    $ ('.score-card.team1').text(score1);
     $('.center').addClass('flash');
     setTimeout(function(){
       $('.center').removeClass('flash');
     }, 250);
+
+    var winner = determineWinner(score0, score1);
+
+    if (winner > -1) {
+      if (winner == 0) {
+        updateScores(player0, player1);
+      }
+      else {
+        updateScores(player1, player0);
+      }
+
+      // TODO make this prettier
+      alert("Game over. Team " + winner + " wins.");
+
+      // TODO redirect to selection screen
+      activeGameScoreRef.update({team0: 0, team1: 0});
+      loadActivePlayers("Arthur", "Matt");
+    }
+
   });
 };
 

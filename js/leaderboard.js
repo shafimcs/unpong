@@ -28,3 +28,21 @@ function updateScores (playerWon, playerLost) {
     playerRefLost.update({score: newLostScore});
 }
 
+// return 0 or 1, mapped to the scores passed in, or -1 if the game is not over
+function determineWinner(score0, score1) {
+    if (score0 == 21 && score1 < 20) {
+        return 0;
+    }
+    else if (score1 == 21 && score0 < 20) {
+        return 1;
+    }
+    else if (score0 >= 20 && score1 >= 20 && score0 - score1 == 2) {
+        return 0;
+    }
+    else if (score0 >= 20 && score1 >= 20 && score1 - score0 == 2) {
+        return 1;
+    }
+    else {
+        return -1;
+    }
+}

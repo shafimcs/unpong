@@ -25,6 +25,12 @@ h2{
   font-size: 1.5em;
 }
 
+h3{
+  @extend .sub-heading-font;
+  color: #fff;
+  font-size: 1.2em;
+}
+
 header{
   text-align: center;
   img{

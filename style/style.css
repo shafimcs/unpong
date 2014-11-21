@@ -14,7 +14,7 @@
   font-family: Champion, sans-serif;
   font-weight: 700; }
 
-.sub-heading-font, h2 {
+.sub-heading-font, h2, h3 {
   font-family: 'Julius Sans One', sans-serif; }
 
 .general {
@@ -35,6 +35,10 @@ h1 {
 h2 {
   color: #fff;
   font-size: 1.5em; }
+
+h3 {
+  color: #fff;
+  font-size: 1.2em; }
 
 header {
   text-align: center; }
@@ -105,7 +109,9 @@ header {
   background: #79a7d0; }
 
 .center {
-  background: #b9d531;
+  background: #B9D531;
   text-align: center; }
   .center.flash {
     background: #ebf3c5; }
+
+/*# sourceMappingURL=style.css.map */
