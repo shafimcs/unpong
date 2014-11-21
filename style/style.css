@@ -92,10 +92,10 @@ header {
     .score-container .score-card.team1 {
       background: #79a7d0; }
 
-.left {
+.view-team0 {
   background: #ff2359; }
 
-.right {
+.view-team1 {
   background: #79a7d0; }
 
 .center {

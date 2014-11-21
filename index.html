@@ -10,7 +10,7 @@
 </head>
 <body>
 <div class="view-container grid-3">
-  <div class="left" data-player="0">
+  <div class="view-team0" data-player="0">
     <header>
       <h1>Team Red</h1>
       <img src="img/johnny.jpg" alt=""/>
@@ -31,7 +31,7 @@
     </ol>
 
   </div>
-  <div class="right" data-player="1">
+  <div class="view-team1" data-player="1">
     <header>
       <h1>Team Blue</h1>
       <img src="img/steph.jpg" alt=""/>
@@ -46,12 +46,9 @@
 <script src="js/scoring.js"></script>
 <script src="js/leaderboard.js"></script>
 <script>
-  var activeGameScoreRef = new Firebase("https://unpong.firebaseio.com/liveGame/score");
 
-  activeGameScoreRef.on('value', function(snapshot){
-    $('.score-card.team0').text(snapshot.val().team0);
-    $('.score-card.team1').text(snapshot.val().team1);
-  });
+
+
 </script>
 </body>
 </html>
