@@ -1,0 +1,87 @@
+@import "font";
+
+$team0: #ff2359;
+$team1: #79a7d0;
+$neutral: #B9D531;
+
+body{
+  margin: 0;
+}
+
+h1{
+  @extend .title-font;
+  color: #fff;
+  font-size: 3em;
+}
+
+h2{
+  @extend .sub-heading-font;
+  color: #fff;
+  font-size: 1.5em;
+}
+
+header{
+  text-align: center;
+  img{
+    border-radius: 150px;
+    border: 5px solid #fff;
+    box-shadow: 0 0 10px #fff;
+    box-sizing: border-box;
+    background: #fff;
+  }
+}
+
+.view-container{
+  width: 100%;
+  &.grid-1 > div{width: calc(100%/1);}
+  &.grid-2 > div{width: calc(100%/2);}
+  &.grid-3 > div{width: calc(100%/3);}
+  > div{
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    height: 600px;
+    float: left;
+    margin: 0;
+    padding: 0;
+    transition: all .25s ease 0s;
+    box-shadow: inset 0 -18px 0 rgba(0,0,0,.2);
+    &.pressed{
+      margin-top: 18px;
+      box-shadow: inset 0 0 40px rgba(0,0,0,1);
+      height: 582px;
+      transition: all 0s ease 0s;
+    }
+  }
+}
+
+.score-container{
+  text-align: center;
+  .score-card{
+    padding: 20px;
+    color: #fff;
+    @extend .title-font;
+    text-align: center;
+    display: inline-block;
+    font-size: 1.2em;
+    margin: 0 20px;
+    &.team0{background: $team0;}
+    &.team1{background: $team1;}
+  }
+}
+
+.left{background: $team0}
+.right{background:  $team1}
+
+.center{
+  background:  $neutral;
+  &.flash{
+    background: lighten($neutral, 35%);
+  }
+}
+
+
+

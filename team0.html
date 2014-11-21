@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>Unpong</title>
+  <link rel="stylesheet" href="style/style.css"/>
+  <link href='http://fonts.googleapis.com/css?family=Julius+Sans+One' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:400,700' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, minimal-ui">
+</head>
+<body>
+<div class="view-container grid-1">
+  <div class="left" data-player="0">
+    <header>
+      <h1>Team Red</h1>
+      <img src="img/johnny.jpg" alt=""/>
+      <h2>Johnny "Cache"</h2>
+    </header>
+  </div>
+</div>
+
+<script src="https://cdn.firebase.com/js/client/1.1.2/firebase.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="js/fastclick.js"></script>
+<script>
+  if ('addEventListener' in document) {
+    document.addEventListener('DOMContentLoaded', function() {
+      FastClick.attach(document.body);
+    }, false);
+  }
+
+  var activeGameScoreRef = new Firebase("https://unpong.firebaseio.com/liveGame/score");
+  $('.left').click(function(){
+    checkScore(0);
+    self = $(this);
+    self.addClass('pressed');
+    setTimeout(function(){
+      self.removeClass('pressed');
+    }, 200);
+
+  });
+
+  var checkScore = function(side){
+    activeGameScoreRef.once("value", function(snapshot) {
+      setScore(side, snapshot.val());
+    }, function (errorObject) {
+      console.log("The read failed: " + errorObject.code);
+    });
+  };
+
+  var setScore = function(side, currentScore){
+    newScore = currentScore.team0 + 1;
+    activeGameScoreRef.update({team0:newScore});
+  };
+</script>
+</body>
+</html>

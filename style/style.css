@@ -1,0 +1,96 @@
+@font-face {
+  font-family: Champion;
+  src: url(../font/Champion-HTF-Welterweight.otf);
+  font-weight: 400; }
+
+@font-face {
+  font-family: Champion;
+  src: url(../font/Champion-HTF-Middleweight.otf);
+  font-weight: 600; }
+
+@font-face {
+  font-family: Champion;
+  src: url(../font/Champion-HTF-Heavyweight.otf);
+  font-weight: 700; }
+
+.title-font, h1, .score-container .score-card {
+  font-family: Champion, sans-serif;
+  font-weight: 700; }
+
+.sub-heading-font, h2 {
+  font-family: 'Julius Sans One', sans-serif; }
+
+.general {
+  font-family: 'Open Sans', sans-serif; }
+
+body {
+  margin: 0; }
+
+h1 {
+  color: #fff;
+  font-size: 3em; }
+
+h2 {
+  color: #fff;
+  font-size: 1.5em; }
+
+header {
+  text-align: center; }
+  header img {
+    border-radius: 150px;
+    border: 5px solid #fff;
+    box-shadow: 0 0 10px #fff;
+    box-sizing: border-box;
+    background: #fff; }
+
+.view-container {
+  width: 100%; }
+  .view-container.grid-1 > div {
+    width: calc(100%/1); }
+  .view-container.grid-2 > div {
+    width: calc(100%/2); }
+  .view-container.grid-3 > div {
+    width: calc(100%/3); }
+  .view-container > div {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    height: 600px;
+    float: left;
+    margin: 0;
+    padding: 0;
+    transition: all .25s ease 0s;
+    box-shadow: inset 0 -18px 0 rgba(0, 0, 0, 0.2); }
+    .view-container > div.pressed {
+      margin-top: 18px;
+      box-shadow: inset 0 0 40px black;
+      height: 582px;
+      transition: all 0s ease 0s; }
+
+.score-container {
+  text-align: center; }
+  .score-container .score-card {
+    padding: 20px;
+    color: #fff;
+    text-align: center;
+    display: inline-block;
+    font-size: 1.2em;
+    margin: 0 20px; }
+    .score-container .score-card.team0 {
+      background: #ff2359; }
+    .score-container .score-card.team1 {
+      background: #79a7d0; }
+
+.left {
+  background: #ff2359; }
+
+.right {
+  background: #79a7d0; }
+
+.center {
+  background: #b9d531; }
+  .center.flash {
+    background: #ebf3c5; }

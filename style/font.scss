@@ -1,0 +1,31 @@
+@font-face {
+  font-family: Champion;
+  src: url(../font/Champion-HTF-Welterweight.otf);
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: Champion;
+  src: url(../font/Champion-HTF-Middleweight.otf);
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: Champion;
+  src: url(../font/Champion-HTF-Heavyweight.otf);
+  font-weight: 700;
+}
+
+.title-font{
+//  font-family: 'Roboto Condensed', sans-serif;
+  font-family: Champion, sans-serif;
+  font-weight: 700;
+}
+
+.sub-heading-font{
+  font-family: 'Julius Sans One', sans-serif;
+}
+
+.general{
+  font-family: 'Open Sans', sans-serif;
+}

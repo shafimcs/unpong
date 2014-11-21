@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>Unpong</title>
+  <link rel="stylesheet" href="style/style.css"/>
+  <link href='http://fonts.googleapis.com/css?family=Julius+Sans+One' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:400,700' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+
+<div class="view-container grid-1">
+  <div class="center">
+    <header>
+      <h1>Unpong</h1>
+    </header>
+
+    <div class="score-container">
+      <div class="score-card team0">0</div>
+      <div class="score-card team1">0</div>
+    </div>
+
+  </div>
+</div>
+
+<script src="https://cdn.firebase.com/js/client/1.1.2/firebase.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script>
+  var activeGameScoreRef = new Firebase("https://unpong.firebaseio.com/liveGame/score");
+  activeGameScoreRef.on('value', function(snapshot){
+    var audio = new Audio('sound/bell.wav');
+    audio.play();
+    $('.score-card.team0').text(snapshot.val().team0);
+    $('.score-card.team1').text(snapshot.val().team1);
+    $('.center').addClass('flash');
+
+    setTimeout(function(){
+      $('.center').removeClass('flash');
+    }, 250);
+  });
+</script>
+</body>
+</html>
