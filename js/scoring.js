@@ -1,9 +1,11 @@
 var activeGameScoreRef = new Firebase ("https://unpong.firebaseio.com/liveGame/score");
 
+//Prevent Touch Device Scroll
 document.ontouchmove = function(event){
   event.preventDefault();
-}
+};
 
+//Get window hash
 var hash = window.location.hash.substring(1);
 if(hash === ""){hash = 4;}
 
@@ -86,8 +88,14 @@ var initScoreControl = function (state) {
 //Function if Screen is Score/Leaderboard
 var initScoreViewer = function () {
   activeGameScoreRef.on ('value', function (snapshot) {
+    var audio = new Audio('sound/bell.wav');
+    audio.play();
     $ ('.score-card.team0').text (snapshot.val ().team0);
     $ ('.score-card.team1').text (snapshot.val ().team1);
+    $('.center').addClass('flash');
+    setTimeout(function(){
+      $('.center').removeClass('flash');
+    }, 250);
   });
 };
 
