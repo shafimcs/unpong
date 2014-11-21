@@ -1,7 +1,7 @@
 var activeGameScoreRef = new Firebase ("https://unpong.firebaseio.com/liveGame/score");
 
-var scoreControl = true;
-var scoreViewer = true;
+var hash = window.location.hash.substring(1);
+console.log(hash);
 
 //Function Initialize View
 var initView = function(option){
@@ -15,27 +15,32 @@ var initView = function(option){
       //team-0 (red) control
       setViewGrid (1);
       initScoreControl (0);
+      $('.view-team0').show();
       break;
     case 1:
       //team-1 (blue) control
       setViewGrid (1);
       initScoreControl (1);
+      $('.view-team1').show();
       break;
     case 2:
       //team-0 and team-1 control
       setViewGrid (2);
       initScoreControl (2);
+      $('.view-team0, .view-team1').show();
       break;
     case 3:
       //View Only (Leaderboard/Active Score)
       setViewGrid (1);
       initScoreViewer ();
+      $('.center').show();
       break;
     case 4:
       //Player Control and Score View
       setViewGrid (3);
       initScoreControl (2);
       initScoreViewer ();
+      $('.view-container > div').show();
       break;
   }
 };
