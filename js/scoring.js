@@ -1,4 +1,29 @@
 var activeGameScoreRef = new Firebase ("https://unpong.firebaseio.com/liveGame/score");
+var activePlayersRef = new Firebase ("https://unpong.firebaseio.com/liveGame/activePlayers");
+
+function loadActivePlayers(name0, name1) {
+  var playerRef0 = new Firebase ("https://unpong.firebaseio.com/player/"+name0);
+  var playerRef1 = new Firebase ("https://unpong.firebaseio.com/player/"+name1);
+
+  playerRef0.once("value", function(p) {
+    activePlayersRef.update({team0: p.val()});
+  });
+
+  playerRef1.once("value", function(p) {
+    activePlayersRef.update({team1: p.val()});
+  });
+}
+
+activePlayersRef.on("value", function(players) {
+  var p0 = players.val().team0;
+  var p1 = players.val().team1;
+
+  $('.view-team0').children('header').children('h2').text(p0.name);
+  $('.view-team1').children('header').children('h2').text(p1.name);
+});
+
+// TODO select active players
+loadActivePlayers("Arthur", "Matt");
 
 //Prevent Touch Device Scroll
 document.ontouchmove = function(event){
