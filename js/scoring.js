@@ -148,7 +148,7 @@ var initSplash = function(){
         break;
       case "display":
         $('.splash').fadeOut();
-        window.location.href += "#3";
+        window.location.href += "#4";
         location.reload();
         break;
       case "team0":
@@ -233,7 +233,9 @@ var initScoreViewer = function () {
       }
 
       // TODO make this prettier
-      alert("Game over. Team " + (winner == 0 ? "Red" : "Blue") + " wins.");
+      //alert("Game over. Team " + (winner == 0 ? "Red" : "Blue") + " wins.");
+      $('.winner h1').text((winner == 0 ? "Red" : "Blue"));
+      $('.winner').show();
 
       // TODO redirect to selection screen
       activeGameScoreRef.update({team0: 0, team1: 0});
