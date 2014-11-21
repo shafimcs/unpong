@@ -1,7 +1,8 @@
 var playerRef = new Firebase("https://unpong.firebaseio.com/player");
 
 
-playerRef.once("value", function (players) {
+playerRef.on("value", function (players) {
+    $('.leaderboard').empty();
     var playerMap = _(players.val());
 
     var sortedPlayers = _.sortBy(playerMap.values(), function (player) {
@@ -13,3 +14,17 @@ playerRef.once("value", function (players) {
         $('.leaderboard').append(playerLine);
     });
 });
+
+var myELO = new ELO();
+
+function updateScores (playerWon, playerLost) {
+    var playerRefWon = new Firebase("https://unpong.firebaseio.com/player/" + playerWon.name);
+    var playerRefLost = new Firebase("https://unpong.firebaseio.com/player/" + playerLost.name);
+
+    var newWonScore = myELO.newRatingIfWon(playerWon.score, playerLost.score);
+    var newLostScore = myELO.newRatingIfLost(playerLost.score, playerWon.score);
+
+    playerRefWon.update({score: newWonScore});
+    playerRefLost.update({score: newLostScore});
+}
+
