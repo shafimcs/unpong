@@ -33,7 +33,7 @@ activePlayersRef.on("value", function(players) {
 });
 
 // TODO select active players
-loadActivePlayers("Arthur", "Matt");
+loadActivePlayers("Johnny", "Steph");
 
 
 function toggleServe() {
@@ -239,7 +239,7 @@ var initScoreViewer = function () {
 
       // TODO redirect to selection screen
       activeGameScoreRef.update({team0: 0, team1: 0});
-      loadActivePlayers("Arthur", "Matt");
+      loadActivePlayers("Johnny", "Steph");
     }
   });
 };
