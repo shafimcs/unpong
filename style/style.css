@@ -2,17 +2,14 @@
   font-family: Champion;
   src: url(../font/Champion-HTF-Welterweight.otf);
   font-weight: 400; }
-
 @font-face {
   font-family: Champion;
   src: url(../font/Champion-HTF-Middleweight.otf);
   font-weight: 600; }
-
 @font-face {
   font-family: Champion;
   src: url(../font/Champion-HTF-Heavyweight.otf);
   font-weight: 700; }
-
 .title-font, h1, .score-container .score-card {
   font-family: Champion, sans-serif;
   font-weight: 700; }
@@ -42,6 +39,17 @@ header {
     box-shadow: 0 0 10px #fff;
     box-sizing: border-box;
     background: #fff; }
+
+.leaderboard {
+  font-size: 1.5em;
+  font-family: champion;
+  font-weight: 600;
+  display: inline-block;
+  margin-top: 4ex; }
+  .leaderboard .score {
+    color: white;
+    float: right;
+    margin-left: 1em; }
 
 .view-container {
   width: 100%; }
@@ -91,6 +99,9 @@ header {
   background: #79a7d0; }
 
 .center {
-  background: #b9d531; }
+  background: #B9D531;
+  text-align: center; }
   .center.flash {
     background: #ebf3c5; }
+
+/*# sourceMappingURL=style.css.map */

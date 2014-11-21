@@ -31,6 +31,20 @@ header{
   }
 }
 
+.leaderboard {
+  font-size: 1.5em;
+  font-family: champion;
+  font-weight: 600;
+  display: inline-block;
+  margin-top: 4ex;
+
+  .score {
+    color: white;
+    float: right;
+    margin-left: 1em;
+  }
+}
+
 .view-container{
   width: 100%;
   &.grid-1 > div{width: calc(100%/1);}
@@ -81,6 +95,8 @@ header{
   &.flash{
     background: lighten($neutral, 35%);
   }
+
+  text-align: center;
 }
 
 
