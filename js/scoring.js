@@ -57,24 +57,28 @@ var initView = function(option){
       setViewGrid (1);
       initScoreControl (0);
       $('.view-team0').show();
+      $('.splash').hide();
       break;
     case 1:
       //team-1 (blue) control
       setViewGrid (1);
       initScoreControl (1);
       $('.view-team1').show();
+      $('.splash').hide();
       break;
     case 2:
       //team-0 and team-1 control
       setViewGrid (2);
       initScoreControl (2);
       $('.view-team0, .view-team1').show();
+      $('.splash').hide();
       break;
     case 3:
       //View Only (Leaderboard/Active Score)
       setViewGrid (1);
       initScoreViewer ();
       $('.center').show();
+      $('.splash').hide();
       break;
     case 4:
       //Player Control and Score View
@@ -82,6 +86,7 @@ var initView = function(option){
       initScoreControl (2);
       initScoreViewer ();
       $('.view-container > div').show();
+      $('.splash').hide();
       break;
     case 5:
       //Splash Screen
@@ -94,7 +99,7 @@ var initView = function(option){
 var initSplash = function(){
   $('.white-cover').show();
   $('.splash').show();
-  //$('.white-cover').fadeOut(1000);
+  $('.white-cover').fadeOut(1000);
 
   var clickState = "";
   $('.splash .button').click(function(){
