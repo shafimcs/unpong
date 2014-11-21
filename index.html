@@ -10,8 +10,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, minimal-ui">
 </head>
 <body>
-<div class="view-container">
-  <div class="view-team0" data-player="0" style="display: none;">
+<div class="view-container grid-1">
+  <div class="white-cover show"></div>
+  <div class="splash">
+    <header>
+      <h1>Unpong</h1>
+    </header>
+    <h2>Are you a...</h2>
+    <span class="button red" data-state="player">Player</span><br>
+    <span class="button red" data-state="keeper">Score Keeper</span><br>
+    <span class="button red" data-state="display">Display Screen</span><br>
+  </div>
+  <div class="view-team0" data-player="0">
     <header>
       <h1>Team Red</h1>
       <img src="img/johnny.jpg" alt=""/>
@@ -19,7 +29,7 @@
       <h3></h3>
     </header>
   </div>
-  <div class="center" style="display: none;">
+  <div class="center">
     <header>
       <h1>Unpong</h1>
     </header>
@@ -33,7 +43,7 @@
     </ol>
 
   </div>
-  <div class="view-team1" data-player="1" style="display: none;">
+  <div class="view-team1" data-player="1">
     <header>
       <h1>Team Blue</h1>
       <img src="img/steph.jpg" alt=""/>
@@ -49,11 +59,6 @@
 <script src="http://underscorejs.org/underscore-min.js"></script>
 <script src="js/scoring.js"></script>
 <script src="js/elo.js"></script>
-<script src="js/leaderboard.js"></script>
-<script>
-
-
-
-</script>
+<script src="js/leaderboard.js"></script>xw
 </body>
 </html>

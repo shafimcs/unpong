@@ -41,13 +41,13 @@ document.ontouchmove = function(event){
 
 //Get window hash
 var hash = window.location.hash.substring(1);
-if(hash === ""){hash = 4;}
+if(hash === ""){hash = 5;}
 
 //Function Initialize View
 var initView = function(option){
   var viewContainer = $('.view-container');
   var setViewGrid = function(grid){
-    viewContainer.addClass('grid-'+grid);
+    viewContainer.removeClass('grid-1 grid-2 grid-3').addClass('grid-'+grid);
   };
 
   switch(option) {
@@ -82,6 +82,40 @@ var initView = function(option){
       initScoreViewer ();
       $('.view-container > div').show();
       break;
+    case 5:
+      //Splash Screen
+      initSplash();
+      break;
+  }
+};
+
+//Function for Splash Screen
+var initSplash = function(){
+  $('.white-cover').show();
+  $('.splash').show();
+  //$('.white-cover').fadeOut(1000);
+
+  var clickState = "";
+  $('.splash .button').click(function(){
+    clickState = $(this).attr('data-state');
+    setSplashState(clickState);
+  });
+
+  var setSplashState = function(){
+    switch(clickState) {
+      case "player":
+        //pickTeam();
+        break;
+      case "keeper":
+        $('.splash').fadeOut();
+        initView(2);
+      case "display":
+        $('.splash').fadeOut();
+        initView(3);
+
+    }
+
+
   }
 };
 
