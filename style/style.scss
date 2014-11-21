@@ -4,14 +4,19 @@ $team0: #ff2359;
 $team1: #79a7d0;
 $neutral: #B9D531;
 
-body{
+html, body{
   margin: 0;
+  height: 100%;
+  overflow: hidden;
 }
 
 h1{
   @extend .title-font;
   color: #fff;
   font-size: 3em;
+  @media all and (max-width: 767px){
+    font-size: 2em;
+  }
 }
 
 h2{
@@ -47,6 +52,7 @@ header{
 
 .view-container{
   width: 100%;
+  height: 100%;
   &.grid-1 > div{width: calc(100%/1);}
   &.grid-2 > div{width: calc(100%/2);}
   &.grid-3 > div{width: calc(100%/3);}
@@ -57,7 +63,7 @@ header{
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-    height: 600px;
+    height: 100%;
     float: left;
     margin: 0;
     padding: 0;
@@ -87,8 +93,8 @@ header{
   }
 }
 
-.left{background: $team0}
-.right{background:  $team1}
+.view-team0{background: $team0}
+.view-team1{background:  $team1}
 
 .center{
   background:  $neutral;

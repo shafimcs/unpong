@@ -1,7 +1,11 @@
 var activeGameScoreRef = new Firebase ("https://unpong.firebaseio.com/liveGame/score");
 
+document.ontouchmove = function(event){
+  event.preventDefault();
+}
+
 var hash = window.location.hash.substring(1);
-console.log(hash);
+if(hash === ""){hash = 4;}
 
 //Function Initialize View
 var initView = function(option){
@@ -87,4 +91,4 @@ var initScoreViewer = function () {
   });
 };
 
-initView(4);
+initView(parseInt(hash));
