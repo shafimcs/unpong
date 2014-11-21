@@ -1,4 +1,4 @@
-$(window).ready(function(){
+//$(window).ready(function(){
 var activeGameScoreRef = new Firebase ("https://unpong.firebaseio.com/liveGame/score");
 var activePlayersRef = new Firebase ("https://unpong.firebaseio.com/liveGame/activePlayers");
 
@@ -34,6 +34,28 @@ activePlayersRef.on("value", function(players) {
 
 // TODO select active players
 loadActivePlayers("Arthur", "Matt");
+
+
+function toggleServe() {
+  var team0 = $('.view-team0').children('header');
+  var team1 = $('.view-team1').children('header');
+
+  if (service === 0) {
+    team0.children('.service').hide();
+    team1.children('.service').show();
+    service = 1;
+  }
+  else {
+    team1.children('.service').hide();
+    team0.children('.service').show();
+    service = 0;
+  }
+}
+
+// TODO select first serve
+var service = 0;
+toggleServe();
+
 
 //Prevent Touch Device Scroll
 document.ontouchmove = function(event){
@@ -175,6 +197,10 @@ var initScoreViewer = function () {
       $('.center').removeClass('flash');
     }, 250);
 
+    if (changeServe(score0, score1)) {
+      toggleServe();
+    }
+
     var winner = determineWinner(score0, score1);
 
     if (winner > -1) {
@@ -197,4 +223,4 @@ var initScoreViewer = function () {
 };
 
 initView(parseInt(hash));
-});
+//});

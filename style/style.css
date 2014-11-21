@@ -14,7 +14,7 @@
   font-family: Champion, sans-serif;
   font-weight: 700; }
 
-.sub-heading-font, h2, h3 {
+.sub-heading-font, h2, h3, .view-container span.button {
   font-family: 'Julius Sans One', sans-serif; }
 
 .general {
@@ -42,12 +42,14 @@ h3 {
 
 header {
   text-align: center; }
-  header img {
+  header .profile {
     border-radius: 150px;
     border: 5px solid #fff;
     box-shadow: 0 0 10px #fff;
     box-sizing: border-box;
     background: #fff; }
+  header .service {
+    height: 100px; }
 
 .leaderboard {
   font-size: 1.5em;
@@ -62,7 +64,8 @@ header {
 
 .view-container {
   width: 100%;
-  height: 100%; }
+  height: 100%;
+  text-align: center; }
   .view-container.grid-1 > div {
     width: calc(100%/1); }
   .view-container.grid-2 > div {
@@ -70,6 +73,7 @@ header {
   .view-container.grid-3 > div {
     width: calc(100%/3); }
   .view-container > div {
+    display: none;
     -webkit-touch-callout: none;
     -webkit-user-select: none;
     -khtml-user-select: none;
@@ -85,8 +89,29 @@ header {
     .view-container > div.pressed {
       margin-top: 18px;
       box-shadow: inset 0 0 40px black;
-      height: 582px;
+      height: calc(100% - 18px);
       transition: all 0s ease 0s; }
+  .view-container span.button {
+    padding: 10px;
+    font-weight: 400;
+    display: inline-block;
+    color: #fff;
+    margin: 15px 0;
+    cursor: pointer; }
+    .view-container span.button.red {
+      background-color: #ff2359; }
+    .view-container span.button.green {
+      background-color: #B9D531; }
+    .view-container span.button.blue {
+      background-color: #79a7d0; }
+  .view-container .white-cover {
+    background-color: #fff;
+    pointer-events: none;
+    opacity: 0;
+    transition: all 1s ease 0s;
+    box-shadow: 0 0 0 transparent; }
+    .view-container .white-cover.show {
+      opacity: 1; }
 
 .score-container {
   text-align: center; }
@@ -107,6 +132,9 @@ header {
 
 .view-team1 {
   background: #79a7d0; }
+
+.splash {
+  background: #B9D531; }
 
 .center {
   background: #B9D531;

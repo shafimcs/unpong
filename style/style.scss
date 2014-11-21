@@ -33,12 +33,16 @@ h3{
 
 header{
   text-align: center;
-  img{
+  .profile {
     border-radius: 150px;
     border: 5px solid #fff;
     box-shadow: 0 0 10px #fff;
     box-sizing: border-box;
     background: #fff;
+  }
+
+  .service {
+    height: 100px;
   }
 }
 

@@ -46,3 +46,7 @@ function determineWinner(score0, score1) {
         return -1;
     }
 }
+
+function changeServe(score0, score1) {
+    return (score0 + score1) % 5 == 0;
+}
