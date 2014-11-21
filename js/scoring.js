@@ -212,13 +212,12 @@ var initScoreViewer = function () {
       }
 
       // TODO make this prettier
-      alert("Game over. Team " + winner + " wins.");
+      alert("Game over. Team " + (winner == 0 ? "Red" : "Blue") + " wins.");
 
       // TODO redirect to selection screen
       activeGameScoreRef.update({team0: 0, team1: 0});
       loadActivePlayers("Arthur", "Matt");
     }
-
   });
 };
 
