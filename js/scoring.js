@@ -1,3 +1,4 @@
+$(window).ready(function(){
 var activeGameScoreRef = new Firebase ("https://unpong.firebaseio.com/liveGame/score");
 var activePlayersRef = new Firebase ("https://unpong.firebaseio.com/liveGame/activePlayers");
 
@@ -191,3 +192,4 @@ var initScoreViewer = function () {
 };
 
 initView(parseInt(hash));
+});
