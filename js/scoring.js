@@ -68,6 +68,9 @@ if(hash === ""){hash = 5;}
 
 //Function Initialize View
 var initView = function(option){
+
+  initHomeButton();
+
   var viewContainer = $('.view-container');
   var setViewGrid = function(grid){
     viewContainer.removeClass('grid-1 grid-2 grid-3').addClass('grid-'+grid);
@@ -132,14 +135,30 @@ var initSplash = function(){
   var setSplashState = function(){
     switch(clickState) {
       case "player":
-        //pickTeam();
+        $('.splash .main').hide();
+        $('.splash .secondary').css({
+          opacity: 0,
+          display: 'inline-block'
+        }).animate({opacity:1},600);
         break;
       case "keeper":
         $('.splash').fadeOut();
-        initView(2);
+        window.location.href += "#2";
+        location.reload();
+        break;
       case "display":
         $('.splash').fadeOut();
-        initView(3);
+        window.location.href += "#3";
+        location.reload();
+        break;
+      case "team0":
+        window.location.href += "#0";
+        location.reload();
+        break;
+      case "team1":
+        window.location.href += "#1";
+        location.reload();
+        break;
 
     }
 
@@ -149,6 +168,7 @@ var initSplash = function(){
 
 //Function if Screen is Score Control
 var initScoreControl = function (state) {
+  initHomeButton();
   $ ('.view-team0, .view-team1').click (function () {
     self = $ (this);
     self.addClass ('pressed');
@@ -183,6 +203,7 @@ var initScoreControl = function (state) {
 
 //Function if Screen is Score/Leaderboard
 var initScoreViewer = function () {
+  initHomeButton();
   activeGameScoreRef.on ('value', function (snapshot) {
     var audio = new Audio('sound/bell.wav');
     audio.play();
@@ -220,6 +241,27 @@ var initScoreViewer = function () {
     }
   });
 };
+
+  var initHomeButton = function(){
+    var timeoutId = 0;
+    $('.home').on( "mousedown touchstart", function(e){
+      $('.homeload').addClass('load');
+       timeoutId = setTimeout(function(){
+         function removeHash () {
+           history.pushState("", document.title, window.location.pathname
+           + window.location.search);
+           location.reload();
+         }
+         removeHash();
+         console.log('done');
+       }, 1000);
+    }).bind('mouseup mouseleave touchend', function() {
+      $('.homeload').removeClass('load');
+      clearTimeout(timeoutId);
+    });
+
+
+  };
 
 initView(parseInt(hash));
 });

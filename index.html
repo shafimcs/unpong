@@ -12,16 +12,20 @@
 <body>
 <div class="view-container grid-1">
   <!--<div class="white-cover show"></div>-->
+  <div class="homeload"></div>
   <div class="splash">
     <header>
       <h1>Unpong</h1>
     </header>
     <h2>Are you a...</h2>
-    <span class="button red" data-state="player">Player</span><br>
-    <span class="button red" data-state="keeper">Score Keeper</span><br>
-    <span class="button red" data-state="display">Display Screen</span><br>
+    <span class="button red main" data-state="player">Player</span><br>
+    <span class="button red main" data-state="keeper">Score Keeper</span><br>
+    <span class="button red main" data-state="display">Display Screen</span><br>
+    <span class="button red secondary" data-state="team0">Team Red</span><br>
+    <span class="button blue secondary" data-state="team1">Team Blue</span><br>
   </div>
   <div class="view-team0" data-player="0">
+    <div class="home">Home</div>
     <header>
       <h1>Team Red</h1>
       <img class="profile" src="img/johnny.jpg" alt=""/>
@@ -31,6 +35,7 @@
     </header>
   </div>
   <div class="center">
+    <div class="home">Home</div>
     <header>
       <h1>Unpong</h1>
     </header>
@@ -45,6 +50,7 @@
 
   </div>
   <div class="view-team1" data-player="1">
+    <div class="home">Home</div>
     <header>
       <h1>Team Blue</h1>
       <img class="profile" src="img/steph.jpg" alt=""/>
@@ -53,6 +59,11 @@
       <img class="service" src="img/pingpong.png">
     </header>
 
+  </div>
+  <div class="winner">
+    <img src="img/johnny.jpg" alt="" class="profile"/>
+    <h1></h1>
+    <h2>Is the winner!</h2>
   </div>
 </div>
 

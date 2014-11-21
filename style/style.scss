@@ -15,6 +15,8 @@ h1{
   color: #fff;
   font-size: 3em;
   @media all and (max-width: 767px){
+    margin-top: 50px;
+    padding-top: 70px;
     font-size: 2em;
   }
 }
@@ -64,10 +66,15 @@ header{
   width: 100%;
   height: 100%;
   text-align: center;
+  position: absolute;
   &.grid-1 > div{width: calc(100%/1);}
   &.grid-2 > div{width: calc(100%/2);}
   &.grid-3 > div{width: calc(100%/3);}
-  > div{
+  .splash,
+  .view-team0,
+  .view-team1,
+  .center,
+  .winner{
     display: none;
     -webkit-touch-callout: none;
     -webkit-user-select: none;
@@ -87,6 +94,12 @@ header{
       height: calc(100% - 18px);
       transition: all 0s ease 0s;
     }
+    > div{
+      position: absolute;
+    }
+    .home{
+      position: fixed;
+    }
   }
   span.button{
     padding: 10px;
@@ -99,6 +112,7 @@ header{
     &.red{background-color: $team0;}
     &.green{background-color: $neutral;}
     &.blue{background-color: $team1;}
+    &.secondary{display: none;}
   }
   .white-cover{
     background-color: #fff;
@@ -133,11 +147,39 @@ header{
 
 .center{
   background:  $neutral;
+  text-align: center;
   &.flash{
     background: lighten($neutral, 35%);
   }
-  text-align: center;
 }
 
+.home{
+  @extend .sub-heading-font;
+  color: #fff;
+  position: absolute;
+  padding: 30px;
+  cursor: pointer;
+  z-index: 3;
+  &::before {
+    content: "\25C0";
+    color: #fff;
+    position: absolute;
+    top: 31px;
+    left: 11px;
+    font-size: 15px;
+  }
+}
 
+.homeload{
+  height: 0%;
+  width: 100%;
+  transition: all 1s ease 0s;
+  background: rgba(255, 255, 255, .7);
+  position: absolute;
+  bottom: 0;
+  z-index: 2;
+  &.load{
+    height: 100%;
+  }
+}
 
