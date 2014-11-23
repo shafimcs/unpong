@@ -1,6 +1,5 @@
 var playerRef = new Firebase("https://unpong.firebaseio.com/player");
 
-
 playerRef.on("value", function (players) {
     $('.leaderboard').empty();
     var playerMap = _(players.val());
@@ -17,7 +16,7 @@ playerRef.on("value", function (players) {
 
 var myELO = new ELO();
 
-function updateScores (playerWon, playerLost) {
+function updateScores(playerWon, playerLost) {
     var playerRefWon = new Firebase("https://unpong.firebaseio.com/player/" + playerWon.name);
     var playerRefLost = new Firebase("https://unpong.firebaseio.com/player/" + playerLost.name);
 
@@ -48,5 +47,9 @@ function determineWinner(score0, score1) {
 }
 
 function changeServe(score0, score1) {
-    return (score0 + score1) % 5 == 0;
+    var mod = 5;
+    if (score0 >= 20 && score1 >= 20) {
+        mod = 2;
+    }
+    return (score0 + score1) % mod == 0;
 }
