@@ -207,4 +207,8 @@ header {
   .winner .profile {
     margin-top: 100px; }
 
+.button:active {
+  position: relative;
+  top: 1px; }
+
 /*# sourceMappingURL=style.css.map */
