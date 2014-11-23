@@ -81,6 +81,7 @@ function initView(option) {
             $('.view-container > div').show();
             $('.leaderboard').hide();
             $('.controls').show();
+            $('.center').children('header').hide()
             $('.splash').hide();
             break;
         case 3:
