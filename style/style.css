@@ -66,6 +66,10 @@ header {
     float: right;
     margin-left: 1em; }
 
+.controls {
+  display: none;
+  margin-top: 4ex; }
+
 .view-container {
   width: 100%;
   height: 100%;
@@ -127,7 +131,7 @@ header {
     .view-container span.button.red {
       background-color: #ff2359; }
     .view-container span.button.green {
-      background-color: #b9d531; }
+      background-color: #B9D531; }
     .view-container span.button.blue {
       background-color: #79a7d0; }
     .view-container span.button.secondary {
@@ -163,10 +167,10 @@ header {
   background: #79a7d0; }
 
 .splash {
-  background: #b9d531; }
+  background: #B9D531; }
 
 .center {
-  background: #b9d531;
+  background: #B9D531;
   text-align: center; }
   .center.flash {
     background: #ebf3c5; }
@@ -199,6 +203,8 @@ header {
     height: 100%; }
 
 .winner {
-  background-color: #b9d531; }
+  background-color: #B9D531; }
   .winner .profile {
     margin-top: 100px; }
+
+/*# sourceMappingURL=style.css.map */
